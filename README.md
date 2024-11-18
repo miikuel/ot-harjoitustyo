@@ -6,6 +6,3 @@ Tarkoituksena on toteuttaa kurssin esimerkkiaiheen mukainen opintojen seurantaj�
 
 - [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
 - [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
-
-## Laskarit
-- [Laskarit](https://github.com/miikuel/ot-harjoitustyo/tree/main/laskarit)

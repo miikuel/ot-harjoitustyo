@@ -19,7 +19,7 @@ Sovellus sisältää ainakin seuraavat näkymät:
 
 ## Sovelluksen perustoiminnalisuudet
 
-- käyttäjä voi luoda sovellukseen käyttäjätunnuksen. Käyttäjätunnuksen tulee olla uniikki ja sisältää vähintään 5 merkkiä.
+- käyttäjä voi luoda sovellukseen käyttäjätunnuksen. Käyttäjätunnuksen tulee olla uniikki ja sisältää vähintään 4 merkkiä. Salasanan tulee olla vähintään 5 merkkiä.
 - käyttäjä voi kirjautua sisään sovellukseen. Sovellus ilmoittaa jos käyttäjätunnus tai salasana ei täsmää tai käyttäjätunnusta ei ole olemassa.
 - käyttäjä voi luoda uuden deadlinen antamalla sille aiheen, kategorian ja määräpäivän
 - käyttäjä voi merkata deadlinen tehdyksi

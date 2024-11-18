@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ot-harjoitustyo"
+version = "0.1.0"
+description = ""
+authors = ["Miki Kauste <miki.kauste@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+invoke = "^2.2.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+coverage = "^7.6.7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

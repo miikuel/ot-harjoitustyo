@@ -1,0 +1,3 @@
+- Lisätty UserRepository-luokka, joka vastaa käyttäjien tallennuksesta, etsimisestä ja poistamisesta (ei vielä pysyväistallennusta)
+- Lisätty StudytrackerService-luokka, joka vastaa sovelluslogiikan koodista
+- Testattu, että UserRepository-luokka toimii kuten pitääkin, testien haarautumakattavuus 100%
