@@ -1,1 +1,1 @@
-![Pakkausrakenne](./kuvat/arkkitehtuuri-pakkaus.png)
+![Pakkausrakenne](./kuvat/arkkitehtuuri-pakkaus-luokat.png)
