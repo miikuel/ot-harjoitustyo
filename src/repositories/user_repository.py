@@ -1,38 +1,53 @@
-class UserRepository:
-    def __init__(self):
-        self.users = []
+from database_connection import get_database_connection
+from entities.user import User
 
+class UserRepository:
+    def __init__(self, connection):
+        self.connection = connection
 
     def create(self, user):
-        self.users.append(user)
+        try:
+            cursor = self.connection.cursor()
+            cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)",
+                           (user.username, user.password))
+            self.connection.commit()
+            return True
+        except:
+            return False
 
-    def find_by_username(self, username):  
-        for user in self.users:
-            print(user.username)
-            if user.username == username:
-                return user
-        return None
-    
+    def find_by_username(self, username):
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT * FROM users WHERE username = ?", (username, ))
+        user = cursor.fetchone()
+
+        if not user:
+            return None
+        return User(user["username"], user["password"], user["id"])
+
     def validate_credentials(self, username, password):
         if self.find_by_username(username):
-            raise ValueError(f"Username {username} already exists")
+            raise ValueError(f"Käyttäjätunnus {username} on jo olemassa")
         if len(username) < 4:
-            raise ValueError("Username must be at least 4 characters long")
+            raise ValueError("Käyttäjätunnuksen minimipituus on 4 merkkiä")
         if len(password) < 5:
-            raise ValueError("Password must be at least 5 characters long")
+            raise ValueError("Salasanan minimipituus on 5 merkkiä")
         if len(username) > 20:
-            raise ValueError("Maximum length for username is 20 characters")
+            raise ValueError("Käyttäjätunnuksen maksimipituus on 20 merkkiä")
         if len(password) > 20:
-            raise ValueError("Maximum length for password is 20 characters")
+            raise ValueError("Salasanan maksimipituus on 20 merkkiä")
         return True
-        
+
     def delete_all(self):
-        while self.users:
-            self.users.pop()
+        pass
 
     def find_all(self):
-        return self.users
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT * FROM users")
+        users = cursor.fetchall()
+
+        return [User(user["username"], user["password"], user["id"]) for user in users]
 
 
-    
-user_repository = UserRepository()
+
+user_repository = UserRepository(get_database_connection())
+# users = user_repository.find_all()

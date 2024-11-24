@@ -19,11 +19,11 @@ Sovellus sisältää ainakin seuraavat näkymät:
 
 ## Sovelluksen perustoiminnalisuudet
 
-- käyttäjä voi luoda sovellukseen käyttäjätunnuksen. Käyttäjätunnuksen tulee olla uniikki ja sisältää vähintään 4 merkkiä. Salasanan tulee olla vähintään 5 merkkiä.
-- käyttäjä voi kirjautua sisään sovellukseen. Sovellus ilmoittaa jos käyttäjätunnus tai salasana ei täsmää tai käyttäjätunnusta ei ole olemassa.
-- käyttäjä voi luoda uuden deadlinen antamalla sille aiheen, kategorian ja määräpäivän
+- käyttäjä voi luoda sovellukseen käyttäjätunnuksen. Käyttäjätunnuksen tulee olla uniikki ja sisältää vähintään 4 merkkiä. Salasanan tulee olla vähintään 5 merkkiä. **tehty**
+- käyttäjä voi kirjautua sisään sovellukseen. Sovellus ilmoittaa jos käyttäjätunnus tai salasana ei täsmää tai käyttäjätunnusta ei ole olemassa. **tehty**
+- käyttäjä voi luoda uuden deadlinen antamalla sille aiheen, kategorian ja määräpäivän **tehty**
 - käyttäjä voi merkata deadlinen tehdyksi
-- käyttäjä näkee listauksen kirjauksistaan
+- käyttäjä näkee listauksen kirjauksistaan **tehty**
 - käyttäjä pystyy filteröimään listausta näyttämään joko kaikki deadlinet tai ainoastaan tekemättömät/tehdyt. Filtteröinnin voi tehdä myös kategorioittain.
 
 ## Jatkokehitysideoita
