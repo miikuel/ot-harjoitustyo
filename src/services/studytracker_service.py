@@ -24,9 +24,9 @@ class StudytrackerService():
     def login(self, username, password):
         user = self.user_repository.find_by_username(username)
         if not user:
-            raise ValueError(f"Username {username} does not exists")
+            raise ValueError(f"Käyttäjätunnusta {username} ei ole olemassa")
         if password != user.password:
-            raise ValueError("Invalid username or password")
+            raise ValueError("Virheellinen käyttäjätunnus tai salasana")
 
         self.user = user
 
