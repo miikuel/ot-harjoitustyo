@@ -17,6 +17,12 @@ Tarkoituksena on toteuttaa kurssin esimerkkiaiheen mukainen opintojen seurantaj√
 poetry install
 ```
 
+2. Suorita vaadittavat alustustoimenpiteet komennolla:
+
+```bash
+poetry run invoke build
+```
+
 ## Komentorivitoiminnot
 
 ### Ohjelman suorittaminen
