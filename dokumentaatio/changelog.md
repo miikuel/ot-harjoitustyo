@@ -9,6 +9,10 @@
 
 ## Viikko 4
 - Implementoitu tietojen pysyväistallennus sqlite3 tietokantaan ja sen edellyttämät muutokset koodiin
-- lisätty TaskRepository-luokka, joka vastaa tehtäviin liittyvistä operaatioista sekä näihin liittyvät toiminnot lisätty StudyTracker-luokkaan
+- Lisätty TaskRepository-luokka, joka vastaa tehtäviin liittyvistä operaatioista sekä näihin liittyvät toiminnot lisätty StudyTracker-luokkaan
 - Yksikkötestit TaskRepository-luokalle
 - Lisätty mahdollisuus taskien lisäämiseen ja lisättyjen taskien katseluun sekä yleisesti paranneltu käyttöliittymää ja siirretty se omaan tiedostoon ui-kansioon
+
+## Viikko 5
+- Toteutetty graafinen käyttöliittymä TkInterillä
+- Lisätty toiminnalisuus taskin tehdyksi merkkaamiseksi ja testi toiminnallisuudelle

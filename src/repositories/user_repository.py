@@ -25,6 +25,8 @@ class UserRepository:
         return User(user["username"], user["password"], user["id"])
 
     def validate_credentials(self, username, password):
+        if len(username) == 0 and len(password) == 0:
+            raise ValueError("Käyttäjätunnus ja salasana ovat pakollisia kenttiä")
         if self.find_by_username(username):
             raise ValueError(f"Käyttäjätunnus {username} on jo olemassa")
         if len(username) < 4:
@@ -36,9 +38,6 @@ class UserRepository:
         if len(password) > 20:
             raise ValueError("Salasanan maksimipituus on 20 merkkiä")
         return True
-
-    def delete_all(self):
-        pass
 
     def find_all(self):
         cursor = self.connection.cursor()

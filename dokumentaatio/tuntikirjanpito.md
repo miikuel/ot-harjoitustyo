@@ -8,6 +8,8 @@
 | 23.11. | 6    | tietokannan implementointi sekä task_repositoryn ja studytracker_servicen uudet toiminnallisuudet |
 | 24.11. | 8    | jatkotyöstöä aiempiin, testit task_repositorylle sekä lisätoimintoja tekstikäyttöliittymään ja toteutus siirretty ui kansioon |
 | 25.11. | 1    | pieniä korjauksia, dokumentaation parantelua ym. |
-| yht.   | **27**   | |
+| 2.12. | 6    | graafinen käyttöliittymä ja toiminnallisuus taskin merkkaamiseksi tehdyksi |
+| 3.12. | 2    | parantelua käyttöliittymään ja muuta yleistä jatkotyöstöä sekä testi taskin tehdyksi merkkaamiselle |
+| yht.   | **35**   | |
 
 

@@ -17,15 +17,16 @@ class TaskRepository():
         cursor = self.connection.cursor()
         cursor.execute("SELECT * FROM tasks WHERE user_id = ?", (user.id, ))
         tasks = cursor.fetchall()
-        return [Task(task["topic"], task["category"], task["deadline"], task["id"]) for task in tasks]
+        return [Task(task["topic"], task["category"], task["deadline"], task["id"], task["done"]) for task in tasks]
 
-    def set_done(self, task):
-        pass
-
-    def delete(self, task):
-        pass
+    def set_done(self, task_id):
+        cursor = self.connection.cursor()
+        cursor.execute("UPDATE tasks set done = 1 WHERE id = ?", (task_id, ))
+        self.connection.commit()
 
     def validate_task(self, topic, category, deadline):
+        if not topic and not category and not deadline:
+            raise ValueError("Kaikki kentät ovat pakollisia")
         if not topic or len(topic.strip()) == 0:
             raise ValueError("Aihe ei saa olla tyhjä")
         if len(topic) > 100:

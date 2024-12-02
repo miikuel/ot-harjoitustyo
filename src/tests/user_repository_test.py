@@ -74,3 +74,8 @@ class TestUserRepository(unittest.TestCase):
         validation = user_repository.validate_credentials(
             "user_1", "password123")
         self.assertEqual(validation, True)
+
+    def test_all_fields_emptyraises_an_error(self):
+        with self.assertRaises(ValueError) as error:
+            user_repository.validate_credentials("", "")
+        self.assertEqual(str(error.exception), "Käyttäjätunnus ja salasana ovat pakollisia kenttiä")

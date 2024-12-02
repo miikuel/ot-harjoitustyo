@@ -17,6 +17,9 @@ class StudytrackerService():
     def find_users_tasks(self):
         return self.task_repository.find_all_by_user(self.user)
 
+    def set_task_done(self, task_id):
+        task_repository.set_done(task_id)
+
     def create_user(self, username, password):
         self.user_repository.validate_credentials(username, password)
         return self.user_repository.create(User(username, password))
