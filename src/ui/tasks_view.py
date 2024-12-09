@@ -4,11 +4,12 @@ from services.studytracker_service import studytracker_service
 
 class TaskListView:
 
-    def __init__(self, root, tasks, handle_set_task_done):
+    def __init__(self, root, tasks, handle_set_task_done, handle_set_task_not_done):
 
         self.root = root
         self.tasks = tasks
         self.handle_set_task_done = handle_set_task_done
+        self.handle_set_task_not_done = handle_set_task_not_done
         self.frame = None
 
         self.initialize()
@@ -25,23 +26,63 @@ class TaskListView:
         category = ttk.Label(master=item_frame, text=task.category)
         deadline = ttk.Label(master=item_frame, text=task.deadline)
 
-        set_done_button = ttk.Button(
-            master=item_frame,
-            text="Merkkaa tehdyksi",
-            command=lambda: self.handle_set_task_done(task.task_id)
-        )
+        if not task.done:
+            style = ttk.Style()
+            style.configure(
+                "set_done.TButton",
+                font=("Helvetica", 11, "bold"),
+                foreground="white",
+                background="green"
+            )
+            style.map(
+                "set_done.TButton",
+                background=[("active", "white")],
+                foreground=[("active", "green")]
+            )
+            set_done_button = ttk.Button(
+                master=item_frame,
+                text="Merkkaa tehdyksi",
+                style="set_done.TButton",
+                command=lambda: self.handle_set_task_done(task.task_id)
+            )
+            set_done_button.grid(
+                row=0,
+                column=3,
+                padx=5,
+                pady=5,
+                sticky=constants.EW
+            )
+        else:
+                style = ttk.Style()
+                style.configure(
+                    "set_not_done.TButton",
+                    font=("Helvetica", 11, "bold"),
+                    foreground="white",
+                    background="red"
+                )
+                style.map(
+                    "set_not_done.TButton",
+                    background=[("active", "white")],
+                    foreground=[("active", "red")]
+                )
+
+                set_not_done_button = ttk.Button(
+                master=item_frame,
+                text="Palauta tekemättömäksi",
+                style="set_not_done.TButton",
+                command=lambda: self.handle_set_task_not_done(task.task_id)
+                )
+                set_not_done_button.grid(
+                    row=0,
+                    column=3,
+                    padx=5,
+                    pady=5,
+                    sticky=constants.EW
+                )
 
         topic.grid(row=0, column=0, padx=5, pady=5, sticky=constants.E)
         category.grid(row=0, column=1, padx=5, pady=5, sticky=constants.E)
         deadline.grid(row=0, column=2, padx=5, pady=5, sticky=constants.E)
-
-        set_done_button.grid(
-            row=0,
-            column=3,
-            padx=5,
-            pady=5,
-            sticky=constants.EW
-        )
 
         item_frame.grid_columnconfigure(0, weight=1, minsize=300)
         item_frame.grid_columnconfigure(1, weight=1, minsize=200)
@@ -53,8 +94,8 @@ class TaskListView:
         self.frame = ttk.Frame(master=self.root)
 
         for task in self.tasks:
-            if not task.done:
-                self.initialize_task_item(task)
+            # if not task.done:
+            self.initialize_task_item(task)
 
 
 class TasksView:
@@ -69,6 +110,7 @@ class TasksView:
         self.task_list_view = None
         self.error_variable = None
         self.error_label = None
+        self.task_filter = None
 
         self.initialize()
 
@@ -87,16 +129,29 @@ class TasksView:
         self.initialize_task_list()
         self.hide_error()
 
+    def handle_set_task_not_done(self, task_id):
+        studytracker_service.set_task_not_done(task_id)
+        self.initialize_task_list()
+        self.hide_error()
+
     def initialize_task_list(self):
         if self.task_list_view:
             self.task_list_view.destroy()
 
-        tasks = studytracker_service.find_users_tasks()
+        if self.task_filter.get() == "Tekemättömät":
+            tasks = studytracker_service.find_users_tasks()
+            tasks = list(filter(lambda task: task.done == 0, tasks))
+        elif self.task_filter.get() == "Tehdyt":
+            tasks = studytracker_service.find_users_tasks()
+            tasks = list(filter(lambda task: task.done, tasks))
+        else:
+            tasks = studytracker_service.find_users_tasks()
 
         self.task_list_view = TaskListView(
             self.task_list_frame,
             tasks,
-            self.handle_set_task_done
+            self.handle_set_task_done,
+            self.handle_set_task_not_done
         )
 
         self.task_list_view.pack()
@@ -133,11 +188,22 @@ class TasksView:
         font=bold_font
         )
 
-        # done_label = ttk.Label(
-        # master=self.frame,
-        # text="Merkkaa tehdyksi",
-        # font=bold_font
-        # )
+        self.task_filter = StringVar()
+        choices = ["Tekemättömät", "Tehdyt", "Kaikki"]
+        self.task_filter.set(choices[0])
+        self.task_filter.trace_add("write", lambda *args: self.initialize_task_list())
+        style = ttk.Style()
+        style.configure(
+            "task_filter.TMenubutton",
+            font=("Helvetica", 11, "bold"),
+            foreground="black",
+            background="darkgrey"
+        )
+        style.map(
+            "task_filter.TMenubutton",
+            background=[("active", "white")],
+            foreground=[("active", "black")]
+        )
 
         separator = ttk.Separator(master=self.frame, orient="horizontal")
         separator.grid(row=1, column=0, columnspan=4, padx=5, pady=5, sticky=constants.EW)
@@ -148,7 +214,8 @@ class TasksView:
         topic_label.grid(row=2, column=0, padx=5, pady=5, sticky=constants.E)
         category_label.grid(row=2, column=1, padx=5, pady=5, sticky=constants.E)
         deadline_label.grid(row=2, column=2, padx=5, pady=5, sticky=constants.E)
-        # done_label.grid(row=2, column=3, padx=5, pady=5, sticky=constants.E)
+        dropdown = ttk.OptionMenu(self.frame, self.task_filter, self.task_filter.get(), *choices, style="task_filter.TMenubutton")
+        dropdown.grid(row=2, column=3, padx=5, pady=5, sticky=constants.E)
     
 
         logout_button.grid(

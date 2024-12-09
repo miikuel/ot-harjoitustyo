@@ -24,7 +24,7 @@ Sovellus sisältää ainakin seuraavat näkymät:
 - käyttäjä voi luoda uuden deadlinen antamalla sille aiheen, kategorian ja määräpäivän **tehty**
 - käyttäjä voi merkata deadlinen tehdyksi **tehty**
 - käyttäjä näkee listauksen kirjauksistaan **tehty**
-- käyttäjä pystyy filteröimään listausta näyttämään joko kaikki deadlinet tai ainoastaan tekemättömät/tehdyt. Filtteröinnin voi tehdä myös kategorioittain.
+- käyttäjä pystyy filteröimään listausta näyttämään joko kaikki deadlinet tai ainoastaan tekemättömät/tehdyt **tehty**
 
 ## Jatkokehitysideoita
 
@@ -36,3 +36,4 @@ Perusversioita voitaisiin laajentaa esimerkiksi seuraavanlaisilla toiminnallisuu
 - käyttäjä pystyy asettaan deadlinelle prioriteetin
 - värikoodaus sen perusteella, kuinka lähellä määräpäivä on
 - erilaisia lisänäkymiä, esim. deadlinet, jotka eivät valmistuneet määräpäivään mennessä
+- filtteröinnin voi tehdä myös kategorioittain (siirretty perustoiminnallisuuksista jatkokehitysideaksi)

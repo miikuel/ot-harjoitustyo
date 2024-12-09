@@ -94,3 +94,18 @@ class TestUserRepository(unittest.TestCase):
         with self.assertRaises(ValueError) as error:
             task_repository.validate_task("", "", "")
         self.assertEqual(str(error.exception), "Kaikki kentät ovat pakollisia")
+
+    def test_user_can_set_task_not_done(self):
+        task_repository.create(self.test_task_1, self.test_user_1)
+        users_tasks = task_repository.find_all_by_user(self.test_user_1)
+
+        self.assertEqual(len(users_tasks), 1)
+        self.assertEqual(users_tasks[0].done, False)
+
+        task_repository.set_done(users_tasks[0].task_id)
+        users_tasks = task_repository.find_all_by_user(self.test_user_1)
+        self.assertEqual(users_tasks[0].done, True)
+
+        task_repository.set_not_done(users_tasks[0].task_id)
+        users_tasks = task_repository.find_all_by_user(self.test_user_1)
+        self.assertEqual(users_tasks[0].done, False)

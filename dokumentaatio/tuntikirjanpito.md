@@ -10,6 +10,8 @@
 | 25.11. | 1    | pieniä korjauksia, dokumentaation parantelua ym. |
 | 2.12. | 6    | graafinen käyttöliittymä ja toiminnallisuus taskin merkkaamiseksi tehdyksi |
 | 3.12. | 2    | parantelua käyttöliittymään ja muuta yleistä jatkotyöstöä sekä testi taskin tehdyksi merkkaamiselle |
-| yht.   | **35**   | |
+| 8.12. | 2    | lisätty toiminnallisuus, että taskin voi palauttaa tekemättömäksi ja yksikkötesti tälle |
+| 4.12. | 6    | lisätty filteröinti-toiminnallisuus taskeille ja paranneltu graafista käyttöliittymää, Docstring-dokumentointia ja käyttöohjeen laatiminen |
+| yht.   | **43**   | |
 
 

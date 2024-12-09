@@ -16,3 +16,11 @@
 ## Viikko 5
 - Toteutetty graafinen käyttöliittymä TkInterillä
 - Lisätty toiminnalisuus taskin tehdyksi merkkaamiseksi ja testi toiminnallisuudelle
+
+## Viikko 6
+- Lisätty filteröinti-toiminnalisuus, jossa käyttäjä pystyy valita näkymäksi joko tekemättömät, tehdyt tai kaikki taskit
+- Lisätty toiminnallisuus, ettän taskin voi palauttaa tekemättömäksi
+- Paranneltu graafista käyttöliittymä
+- Lisätty yksikkötesti taskin tekemättömäksi palauttamiselle
+- Docstring-dokumentointi, User, Task ja StudytrackerService -luokille
+- Käyttöohje

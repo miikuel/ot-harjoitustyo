@@ -4,6 +4,7 @@ Tarkoituksena on toteuttaa kurssin esimerkkiaiheen mukainen opintojen seurantaj�
 
 ## Dokumentaatio
 
+- [Käyttöohje](./dokumentaatio/kayttoohje.md)
 - [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
 - [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
 - [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)

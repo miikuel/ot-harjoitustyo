@@ -17,11 +17,17 @@ class TaskRepository():
         cursor = self.connection.cursor()
         cursor.execute("SELECT * FROM tasks WHERE user_id = ?", (user.id, ))
         tasks = cursor.fetchall()
-        return [Task(task["topic"], task["category"], task["deadline"], task["id"], task["done"]) for task in tasks]
+        return [Task(task["topic"], task["category"], task["deadline"],
+                     task["id"], task["done"]) for task in tasks]
 
     def set_done(self, task_id):
         cursor = self.connection.cursor()
         cursor.execute("UPDATE tasks set done = 1 WHERE id = ?", (task_id, ))
+        self.connection.commit()
+
+    def set_not_done(self, task_id):
+        cursor = self.connection.cursor()
+        cursor.execute("UPDATE tasks set done = 0 WHERE id = ?", (task_id, ))
         self.connection.commit()
 
     def validate_task(self, topic, category, deadline):
@@ -39,8 +45,8 @@ class TaskRepository():
             raise ValueError("Deadline tulee antaa muodossa \"d.m.yyyy\"")
         try:
             datetime.strptime(deadline, "%d.%m.%Y")
-        except ValueError as e:
-            raise ValueError("Deadline ei ole todellinen päivämäärä") from e
+        except ValueError as error:
+            raise ValueError("Deadline ei ole todellinen päivämäärä") from error
 
 
 task_repository = TaskRepository(get_database_connection())
