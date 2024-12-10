@@ -9,6 +9,7 @@ Tarkoituksena on toteuttaa kurssin esimerkkiaiheen mukainen opintojen seurantaj√
 - [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
 - [Ty√∂aikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 - [Changelog](./dokumentaatio/changelog.md)
+- [Releaset](https://github.com/miikuel/ot-harjoitustyo/releases)
 
 ## Asennus
 
