@@ -1,6 +1,6 @@
 # Ohjelmistotekniikka, harjoitustyö
 
-Tarkoituksena on toteuttaa kurssin esimerkkiaiheen mukainen opintojen seurantajärjestelmä, jossa käyttäjä pystyy kirjaamaan opintoihin liittyviä deadlineja ja seuraamaan niiden valmistumista. Kirjaus sisältää aiheen (esim. kurssin x laskarit), se voidaan luokitella johonkin kategoriaan (esim. kurssi y), sillä on deadline ja se voidaan merkata tehdyksi. Sovellukseen luodaan käyttäjätunnus, jolloin sovellus muistaa kunkin käyttäjän kirjaukset.
+Sovellus on kurssin esimerkkiaiheen mukainen opintojen seurantajärjestelmä, jonka avulla käyttäjä pystyy kirjaamaan opintoihin liittyviä tehtäviä, seuraamaan niiden deadlineja sekä merkkaamaan tehdyt tehtävät valmiiksi. Sovellukseen luodaan käyttäjätunnus, mikä mahdollistaa käyttäjäkohtaiset yksilölliset listaukset. Kirjaus sisältää aiheen, se voidaan luokitella johonkin kategoriaan, sillä on deadline ja valmis tehtävä voidaan merkata tehdyksi.
 
 ## Dokumentaatio
 
@@ -9,6 +9,7 @@ Tarkoituksena on toteuttaa kurssin esimerkkiaiheen mukainen opintojen seurantaj�
 - [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
 - [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 - [Changelog](./dokumentaatio/changelog.md)
+- [Testausdokumentti](./dokumentaatio/testaus.md)
 - [Releaset](https://github.com/miikuel/ot-harjoitustyo/releases)
 
 ## Asennus
