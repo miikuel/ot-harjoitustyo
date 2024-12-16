@@ -37,7 +37,6 @@ class UserRepository:
             raise ValueError("Käyttäjätunnuksen maksimipituus on 20 merkkiä")
         if len(password) > 20:
             raise ValueError("Salasanan maksimipituus on 20 merkkiä")
-        return True
 
     def find_all(self):
         cursor = self.connection.cursor()

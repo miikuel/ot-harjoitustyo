@@ -1,4 +1,3 @@
-# from ui import text_ui
 from tkinter import Tk
 from ui.ui import UI
 

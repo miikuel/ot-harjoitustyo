@@ -70,11 +70,6 @@ class TestUserRepository(unittest.TestCase):
         self.assertEqual(str(error.exception),
                          "Salasanan maksimipituus on 20 merkkiä")
 
-    def test_validate_with_valid_credentials(self):
-        validation = user_repository.validate_credentials(
-            "user_1", "password123")
-        self.assertEqual(validation, True)
-
     def test_all_fields_emptyraises_an_error(self):
         with self.assertRaises(ValueError) as error:
             user_repository.validate_credentials("", "")
