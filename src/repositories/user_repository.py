@@ -2,10 +2,25 @@ from database_connection import get_database_connection
 from entities.user import User
 
 class UserRepository:
+    """Käyttäjään liittyvistä tietokantaoperaatioista vastaava luokka.
+    """
     def __init__(self, connection):
+        """Luokan konstruktori.
+
+        Args:
+            connection: Tietokantayhteyden Connection-olio
+        """
         self.connection = connection
 
     def create(self, user):
+        """Tallentaa uuden käyttäjän tietokantaan.
+
+        Args:
+            user: Tallennettava käyttäjä User-oliona.
+
+        Returns:
+            True jos tallennus onnistui ja muuten False
+        """
         try:
             cursor = self.connection.cursor()
             cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)",
@@ -16,6 +31,13 @@ class UserRepository:
             return False
 
     def find_by_username(self, username):
+        """Palauttaa käyttäjän käyttäjätunnuksen perusteella.
+
+        Args:
+            username: Käyttäjätunnus
+        Returns:
+            Palauttaa User-olion, jos käyttäjä löytyy tietokannasta ja muuten None.
+        """
         cursor = self.connection.cursor()
         cursor.execute("SELECT * FROM users WHERE username = ?", (username, ))
         user = cursor.fetchone()
@@ -25,6 +47,12 @@ class UserRepository:
         return User(user["username"], user["password"], user["id"])
 
     def validate_credentials(self, username, password):
+        """Validoi uuden käyttäjän käyttäjätunnuksen ja salasanan ennen luomista.
+
+        Args:
+        username: Käyttäjätunnus
+        password: Salasana
+        """
         if len(username) == 0 and len(password) == 0:
             raise ValueError("Käyttäjätunnus ja salasana ovat pakollisia kenttiä")
         if self.find_by_username(username):
@@ -39,6 +67,11 @@ class UserRepository:
             raise ValueError("Salasanan maksimipituus on 20 merkkiä")
 
     def find_all(self):
+        """Palauttaa kaikki käyttäjät.
+
+        Returns:
+            Palauttaa listan User-olioita.
+        """
         cursor = self.connection.cursor()
         cursor.execute("SELECT * FROM users")
         users = cursor.fetchall()

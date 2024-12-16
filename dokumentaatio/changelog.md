@@ -29,3 +29,4 @@
 - Refaktorointia ja testitietokannan määrittely
 - Testit StudytrackerService -luokalle
 - Testausdokumentti
+- Docstring-dokumentaatio TaskRepository ja UserRepository -luokille

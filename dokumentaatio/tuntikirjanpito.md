@@ -13,7 +13,6 @@
 | 8.12. | 2    | lisätty toiminnallisuus, että taskin voi palauttaa tekemättömäksi ja yksikkötesti tälle |
 | 4.12. | 6    | lisätty filteröinti-toiminnallisuus taskeille ja paranneltu graafista käyttöliittymää, Docstring-dokumentointia ja käyttöohjeen laatiminen |
 | 16.12. | 3    | Testitietokannan määrittely, koodin refaktorointia ja testit StudytrackerService-luokalle |
-| 17.12. | 1    | Testausdokumentin luominen |
-| yht.   | **46**   | |
-
+| 17.12. | 2    | Testausdokumentin luominen, lisää Docstring-dokumenaatiota ja yleistä ohjelmakoodin läpikäyntiä |
+| yht.   | **48**   | |
 
