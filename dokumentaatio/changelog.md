@@ -27,3 +27,5 @@
 
 ## Viikko 7
 - Refaktorointia ja testitietokannan määrittely
+- Testit StudytrackerService -luokalle
+- Testausdokumentti
