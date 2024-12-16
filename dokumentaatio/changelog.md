@@ -24,3 +24,6 @@
 - Lisätty yksikkötesti taskin tekemättömäksi palauttamiselle
 - Docstring-dokumentointi, User, Task ja StudytrackerService -luokille
 - Käyttöohje
+
+## Viikko 7
+- Refaktorointia ja testitietokannan määrittely
