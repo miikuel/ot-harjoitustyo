@@ -14,7 +14,7 @@ Sovelluslogiikasta vastaavaa `StudytrackerService`-luokkaa testataan [TestStudyt
 
 ### Testauskattavuus
 
-Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen haarautumakattavuus on 90%
+Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen haarautumakattavuus on 89%
 
 ![](./kuvat/testikattavuus.png)
 

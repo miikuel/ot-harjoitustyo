@@ -1,4 +1,5 @@
 import os
+import sys
 import sqlite3
 from dotenv import load_dotenv
 
@@ -12,11 +13,19 @@ if not os.path.exists(data_dir):
 TEST_ENV = os.getenv("TEST_ENV")
 
 if TEST_ENV:
-    TEST_DB_PATH = os.getenv("TEST_DB_PATH") or data_dir
-    connection = sqlite3.connect(os.path.join(TEST_DB_PATH, "test_database.sqlite"))
+    db_dir = os.getenv("TEST_DB_PATH") or data_dir
+    db_file_path = os.path.join(db_dir, "test_database.sqlite")
 else:
-    DB_PATH = os.getenv("DB_PATH") or data_dir
-    connection = sqlite3.connect(os.path.join(DB_PATH, "database.sqlite"))
+    db_dir = os.getenv("DB_PATH") or data_dir
+    db_file_path = os.path.join(db_dir, "database.sqlite")
+
+if not os.path.exists(db_dir):
+    print(f"Ympäristömuuttujassa määriteltyä hakemistoa {db_dir} ei ole olemassa,"
+            " luo hakemisto tai poista muuttuja .env tiedostosta"
+            " käyttääksesi oletuskonfiguraatiota")
+    sys.exit(0)
+
+connection = sqlite3.connect(db_file_path)
 connection.row_factory = sqlite3.Row
 
 

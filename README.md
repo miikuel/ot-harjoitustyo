@@ -20,11 +20,11 @@ Sovellus on kurssin esimerkkiaiheen mukainen opintojen seurantajärjestelmä, jo
 poetry install
 ```
 
-2. Jos haluat määritellä hakemiston johon SQLite-tietokantatiedostot tallennettaan, luo sovelluksen juurihakemistoon .env-tiedosto ja anna polku kansioon suhteessa juurihakemistoon. Jos konfigurointia ei tehdä, sovellus luo juurihakemistoon "data" nimisen kansion ja tallentaa tietokantatiedostot sinne. Konfiguroinnin .env-tiedostossa tulee olla seuraavanlainen:
+2. Jos haluat määritellä olemassa olevan hakemiston johon SQLite-tietokantatiedostot tallennettaan, luo sovelluksen juurihakemistoon .env-tiedosto ja anna polku kansioon suhteessa juurihakemistoon. Jos konfigurointia ei tehdä, sovellus luo juurihakemistoon "data" nimisen kansion ja tallentaa tietokantatiedostot sinne. Konfiguroinnin .env-tiedostossa tulee olla seuraavanlainen:
 
 ```
-DB_PATH="kansion_nimi/"
-TEST_DB_PATH="kansion_nimi/"
+DB_PATH=./kansion_nimi/
+TEST_DB_PATH=./kansion_nimi/
 ```
 
 3. Suorita vaadittavat alustustoimenpiteet komennolla:
