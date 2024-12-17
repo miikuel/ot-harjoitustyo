@@ -30,3 +30,4 @@
 - Testit StudytrackerService -luokalle
 - Testausdokumentti
 - Docstring-dokumentaatio TaskRepository ja UserRepository -luokille
+- Lisätty mahdollisuus konfiguroida hakemisto, johon SQLite tietokantatiedostot tallennetaan
